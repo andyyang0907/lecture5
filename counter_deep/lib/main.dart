@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.teal),
+        fontFamily: 'ZcoolKuaiLe',
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -183,6 +184,16 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: .center,
           children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                'assets/icon_plus.jpg',
+                width: 96,
+                height: 96,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 16),
             const Text('You have pushed the button this many times:'),
             Text('当前步长: $_step'),
             Text(
