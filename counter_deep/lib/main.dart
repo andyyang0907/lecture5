@@ -57,6 +57,42 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _step = 1;
 
+  @override
+  void initState() {
+    super.initState();
+    print('[lifecycle] initState');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('[lifecycle] didChangeDependencies');
+  }
+
+  @override
+  void didUpdateWidget(covariant MyHomePage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print('[lifecycle] didUpdateWidget');
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    print('[lifecycle] reassemble (hot reload)');
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    print('[lifecycle] deactivate');
+  }
+
+  @override
+  void dispose() {
+    print('[lifecycle] dispose');
+    super.dispose();
+  }
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -96,6 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print('[lifecycle] build');
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -111,6 +148,14 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/appbar_bg.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.tune),
